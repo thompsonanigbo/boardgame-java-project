@@ -1,29 +1,34 @@
 pipeline {
-    agent { label 'agent-1'}
-     
     tools {
-        maven 'maven3.9'
+        maven 'maven3'
         jdk 'jdk17'
     }
+    agent any
 
     stages {
-        
-        stage('Compile') {
+        stage('mvn compile') {
             steps {
-             sh 'mvn compile'
+                sh 'mvn compile'
             }
         }
-        
-        stage('Test') {
+    
+        stage('mvn test') {
             steps {
-              sh 'mvn test' 
+                sh 'mvn test'
             }
         }
-        
-        stage('Build') {
+    
+        stage('mvn package') {
             steps {
-              sh "mvn package"
+                sh 'mvn package'
+            }
+        }
+    
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
             }
         }
     }
+    
 }
