@@ -1,6 +1,5 @@
 # BoardgameListingWebApp
 
-
 ## Description
 
 
